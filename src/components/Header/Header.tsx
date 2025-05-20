@@ -14,22 +14,25 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <header className="w-full border-b shadow-sm">
-      <div className="countainer mx-auto flex items-center justify-between px-4 py-3">
+    <header className="w-full border-b bg-white shadow-sm sticky top-0 z-50">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="text-xl font-bold text-gray-800 hover:text-blue-500"
+          className="text-2xl font-extrabold tracking-tight text-gray-900 hover:text-blue-600 transition-colors duration-200"
         >
-          Movies DB
+          🎬 Movies CAR
         </Link>
-        <nav className="flex gap-6">
+
+        <nav className="mt-3 md:mt-0 flex flex-wrap gap-4 md:gap-6">
           {links.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
               className={clsx(
-                "text-sm font-medium transition-colors hover:text-blue-500",
-                pathname === href ? "text-ble-500 underline" : "text-gray-500"
+                "text-base font-medium transition-all duration-200 px-2 py-1 rounded-md",
+                pathname === href
+                  ? "bg-blue-100 text-blue-600 shadow-sm"
+                  : "text-gray-600 hover:text-blue-500 hover:bg-gray-100"
               )}
             >
               {label}

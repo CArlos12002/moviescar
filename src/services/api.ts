@@ -4,10 +4,6 @@ import Config from '../config';
 
 const api = axios.create({
   baseURL: Config.baseUrl,           // https://api.themoviedb.org/3
-  headers: {
-    // Bearer Token v4 para endpoints que lo requieran
-    Authorization: `Bearer ${Config.bearerToken}`,
-  },
   params: {
     // API Key v3 para todas las llamadas públicas
     api_key: Config.apiKey,

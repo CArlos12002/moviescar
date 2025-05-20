@@ -6,9 +6,10 @@ import type { Movie } from '@/lib/types';
 
 interface MovieCardProps {
   movie: Movie;
+  isFeatured?: boolean; // Añade esta línea
 }
 
-export default function MovieCard({ movie }: MovieCardProps) {
+export default function MovieCard({ movie, isFeatured }: MovieCardProps) {
   const imageUrl = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     : '/placeholder.png';
@@ -16,8 +17,9 @@ export default function MovieCard({ movie }: MovieCardProps) {
   return (
     <Link
       href={`/movie/${movie.id}`}
-      className="group relative block w-48 sm:w-56 md:w-64 m-2 overflow-visible rounded-lg
-                 bg-gray-900 transform transition duration-300 hover:scale-105"
+      className={`group relative block w-48 sm:w-56 md:w-64 m-2 overflow-visible rounded-lg
+                 bg-gray-900 transform transition duration-300 hover:scale-105
+                 ${isFeatured ? 'border-2 border-indigo-500' : ''}`} // Ejemplo de uso de isFeatured
     >
       {/* Poster con Next/Image */}
       <div className="w-full aspect-[2/3] bg-gray-800 relative overflow-hidden rounded-lg">
